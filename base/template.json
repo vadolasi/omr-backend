@@ -1,0 +1,85 @@
+{
+    "pageDimensions": [
+        3000,
+        4000
+    ],
+    "bubbleDimensions": [
+        46,
+        38
+    ],
+    "preProcessors": [
+        {
+            "name": "CropPage",
+            "options": {
+                "morphKernel": [2, 2]
+            }
+        },
+        {
+            "name": "Levels",
+            "options": {
+                "low": 0.15,
+                "high": 0.70
+            }
+        },
+        {
+          "name": "FeatureBasedAlignment",
+          "options": {
+            "reference": "reference.png",
+            "maxFeatures": 10000,
+            "2d": true
+          }
+        },
+        {
+            "name": "GaussianBlur",
+            "options": {
+                "kSize": [
+                    3,
+                    3
+                ],
+                "sigmaX": 0
+            }
+        }
+    ],
+    "fieldBlocks": {
+        "MCQ_Block_1": {
+            "fieldType": "QTYPE_MCQ5",
+            "origin": [
+                264,
+                1180
+            ],
+            "fieldLabels": ["q1..10"],
+            "bubblesGap": 98,
+            "labelsGap": 72
+        },
+        "MCQ_Block_2": {
+            "fieldType": "QTYPE_MCQ5",
+            "origin": [
+                960,
+                1180
+            ],
+            "fieldLabels": ["q11..20"],
+            "bubblesGap": 98,
+            "labelsGap": 72
+        },
+        "MCQ_Block_3": {
+            "fieldType": "QTYPE_MCQ5",
+            "origin": [
+                1660,
+                1180
+            ],
+            "fieldLabels": ["q21..30"],
+            "bubblesGap": 98,
+            "labelsGap": 72
+        },
+        "MCQ_Block_4": {
+            "fieldType": "QTYPE_MCQ5",
+            "origin": [
+                2350,
+                1180
+            ],
+            "fieldLabels": ["q31..40"],
+            "bubblesGap": 98,
+            "labelsGap": 72
+        }
+    }
+}
