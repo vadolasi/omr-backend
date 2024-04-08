@@ -2,6 +2,11 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+RUN apt update && \
+    apt install -y libopencv-dev libgl1-mesa-glx && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN pip install poetry
 
 ENV POETRY_NO_INTERACTION=1 \
