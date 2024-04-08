@@ -82,6 +82,11 @@ avaliation = {
 }
 
 
+@app.get("/")
+def health():
+    return {"status": "ok"}
+
+
 @app.post("/")
 async def upload_file(
     file: UploadFile = File(...)
