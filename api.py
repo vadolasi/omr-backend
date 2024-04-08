@@ -111,7 +111,10 @@ async def upload_file(
             text=True,
         )
 
-        result.check_returncode()
+        try:
+            result.check_returncode()
+        except subprocess.CalledProcessError as e:
+            return {"status": "error", "message": e.stderr}
 
         answers = get_answers(result.stdout)
 
