@@ -5,6 +5,7 @@ WORKDIR /app
 RUN pip install poetry
 
 ARG PYTHON=python3.12
+RUN apk add --no-cache curl gcc musl-dev libffi-dev openssl-dev python3-dev
 RUN curl https://bootstrap.pypa.io/get-pip.py | \
     $PYTHON - pip==21.3 && \
     # pip adopts the behaviour which is unsupported by debian
