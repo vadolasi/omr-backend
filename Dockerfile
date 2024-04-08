@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-alpine
 
 WORKDIR /app
 
@@ -15,8 +15,6 @@ RUN poetry install --without dev --no-root && rm -rf $POETRY_CACHE_DIR
 
 COPY . .
 
-RUN poetry install --without dev
-
 EXPOSE 80
 
-CMD [ "poetry", "run", "hypercorn", "api:app", "--keyfile=key.pem", "--certfile=cert.pem", "--bind=127.0.0.1:80" ]
+CMD [ "poetry", "run", "hypercorn", "api:app", "--keyfile=key.pem", "--certfile=cert.pem", "--bind=0.0.0.0:80" ]
