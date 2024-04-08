@@ -1,18 +1,8 @@
-FROM python:3.12-alpine
+FROM jeffutter/python-opencv-alpine:latest
 
 WORKDIR /app
 
 RUN pip install poetry
-
-ARG PYTHON=python3.12
-RUN apk add --no-cache curl gcc musl-dev libffi-dev openssl-dev python3-dev
-RUN curl https://bootstrap.pypa.io/get-pip.py | \
-    $PYTHON - pip==21.3 && \
-    # pip adopts the behaviour which is unsupported by debian
-    # https://github.com/pypa/get-pip/issues/124
-    mkdir /usr/lib/$PYTHON/dist-packages && \
-    echo /usr/lib/$PYTHON/site-packages > /usr/lib/$PYTHON/dist-packages/site-packages.pth && \
-    rm -rf /tmp/*
 
 ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_IN_PROJECT=1 \
