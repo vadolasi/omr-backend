@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM hdgigante/python-opencv
 
 WORKDIR /app
 
