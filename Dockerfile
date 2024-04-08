@@ -17,6 +17,6 @@ COPY . .
 
 RUN poetry install --without dev
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD [ "poetry", "run", "hypercorn", "api:app", "--keyfile=key.pem", "--certfile=cert.pem", "--bind=0.0.0.0:8000" ]
+CMD [ "poetry", "run", "hypercorn", "api:app", "--keyfile=key.pem", "--certfile=cert.pem", "--bind=0.0.0.0:80" ]
