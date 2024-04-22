@@ -6,7 +6,7 @@ from screeninfo import  Monitor
 from src.logger import logger
 from src.utils.image import ImageUtils
 
-monitor_window = Monitor()
+monitor_window = Monitor(x=0, y=0, width=1280, height=720)
 
 
 @dataclass
