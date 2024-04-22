@@ -24,7 +24,7 @@ class MsgSpecMsgPackResponse(JSONResponse):
 app = FastAPI(default_response_class=MsgSpecMsgPackResponse)
 app.add_middleware(BrotliMiddleware)
 
-dict_re = re.compile(r"\'(q\d+)\'\:\s*\'(\w)\'")
+dict_re = re.compile(r"'(q\d+)'\s*:\s*'(\w*)'")
 
 
 def get_answers(content: str) -> dict[str, str]:
@@ -103,8 +103,6 @@ async def upload_file(
             content = await file.read()
             await out_file.write(content)
 
-        # entry_point_for_args({'input_paths': [tempdir], 'debug': False, 'output_dir': 'outputs', 'autoAlign': True, 'setLayout': False})
-
         result = subprocess.run(
             [sys.executable, "main.py", "-i", str(tempdir), "-a"],
             capture_output=True,
@@ -127,7 +125,7 @@ async def upload_file(
                 "response": value,
                 "correct": avaliation["questions"][question],
             }
-
+        
         return data
 
 
