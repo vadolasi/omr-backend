@@ -109,6 +109,8 @@ async def upload_file(
             text=True,
         )
 
+        print(result.stdout)
+
         try:
             result.check_returncode()
         except subprocess.CalledProcessError as e:
