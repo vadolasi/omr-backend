@@ -1,12 +1,12 @@
 from dataclasses import dataclass
 
 import cv2
-from screeninfo import get_monitors
+from screeninfo import  Monitor
 
 from src.logger import logger
 from src.utils.image import ImageUtils
 
-monitor_window = get_monitors()[0]
+monitor_window = Monitor()
 
 
 @dataclass
