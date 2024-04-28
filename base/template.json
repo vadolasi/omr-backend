@@ -9,27 +9,6 @@
     ],
     "preProcessors": [
         {
-            "name": "CropPage",
-            "options": {
-                "morphKernel": [2, 2]
-            }
-        },
-        {
-            "name": "Levels",
-            "options": {
-                "low": 0.15,
-                "high": 0.70
-            }
-        },
-        {
-          "name": "FeatureBasedAlignment",
-          "options": {
-            "reference": "reference.png",
-            "maxFeatures": 10000,
-            "2d": true
-          }
-        },
-        {
             "name": "GaussianBlur",
             "options": {
                 "kSize": [
@@ -37,6 +16,29 @@
                     3
                 ],
                 "sigmaX": 0
+            }
+        },
+        {
+            "name": "CropPage",
+            "options": {
+                "morphKernel": [
+                    10,
+                    10
+                ]
+            }
+        },
+        {
+            "name": "CropOnMarkers",
+            "options": {
+              "relativePath": "marker.jpg",
+              "sheetToMarkerWidthRatio": 15
+            }
+        },
+        {
+            "name": "Levels",
+            "options": {
+                "low": 0.3,
+                "high": 0.35
             }
         }
     ],
